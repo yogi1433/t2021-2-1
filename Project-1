@@ -1,0 +1,64 @@
+public class Problem1 {
+    private double a;
+    private double b;
+
+    public Problem1(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public double add() {
+        return a + b;
+    }
+
+    public double subtract() {
+        return a - b;
+    }
+
+    public double multiply() {
+        return a * b;
+    }
+
+    public double divide() {
+        if (b != 0) {
+            return a / b;
+        } else {
+            throw new ArithmeticException("except 0 you can enter any number in denominator");
+        }
+    }
+
+    public static void main(String[] args) {
+        double a =34.1;
+        double b = 76.9;
+        //you can mention below with anyone of the symbols in -,+,*,/
+        String operation = "+"; 
+
+        Problem1 calculator = new Problem1(a, b);
+
+        double result;
+        switch (operation) {
+            case "+":
+                result = calculator.add();
+                System.out.println(a+" "+operation+" "+b+" is: " + result);
+                break;
+            case "-":
+                result = calculator.subtract();
+                System.out.println(a+" "+operation+" "+b+" is: " + result);
+                break;
+            case "*":
+                result = calculator.multiply();
+                System.out.println(a+" "+operation+" "+b+" is: " + result);
+                break;
+            case "/":
+                try {
+                    result = calculator.divide();
+                    System.out.println(a+" "+operation+" "+b+" is: " + result);
+                } catch (ArithmeticException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+                break;
+            default:
+                System.out.println("invalid operatation");
+        }
+    }
+}
